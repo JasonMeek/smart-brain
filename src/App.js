@@ -76,6 +76,7 @@ class App extends Component {
   }
 
   onButtonSubmit = () => {
+    if(this.state.input !== ''){
     this.setState({imageUrl: this.state.input});
       fetch('http://localhost:3000/imageurl', {
         method: 'post',
@@ -104,6 +105,7 @@ class App extends Component {
         this.displayFaceBox(this.calculateFaceLocation(response))
       })
       .catch(err => console.log(err));
+    }
   }
 
   onRouteChange = (route) => {
